@@ -24,4 +24,22 @@ a recursive call will want a biggest number and gets 23. There is no reason to c
 This is still withing MinMax however. There is no Aplha-Beta Pruning implimented yet. The place this would be implimented is within the class GameController.java and it would call the UltimateBoard's boardEvaluation for the base case with the same code as regular TTT had.
 However, this time, new variables beta and alpha would be added which start in the opposit directions Integer.MIN/MAX_VALUE. If beta was greater then alpha or vise versa, this would mena the path is unnecesary and would break out of that path. How exatly this is done is un known to me.
 
-6)
+6) Importance of good commenting. The importance lies within readability. Being able to decipher your own code is important and with most code being worked on for years upon years in companies. Leaving notes of how something works or why it is there will steamline understafing.
+Especialy when making code for someone else or that someone else will look at. having it understandable is important.
+For Example: in GameComtroller.java Lines 132 and 133 youll find the below comment
+    // board.isValid(row of next board, col of next board)
+    if(!board.isValid(Integer.parseInt(board.getNextBoard().checkWinner().getName().substring(0, 1)), Integer.parseInt(board.getNextBoard().checkWinner().getName().substring(2))))
+
+The If statement is very convoluted and although I could seperate all the components but I felt storing all the different variables is teedy.
+Instead of tracig all the methods and classes that its using, you cna instead read the comment that exmplains the basis of the if statement checking.
+
+This is "good" commenting as it explains a part of the code that is not immediatly understood. If its good code is up for debate
+Bad comments is akin to saying needles things or over explaining.
+For Example: in MiniBoard.java Lines 150 and 151
+    count_O += 0; // add 0, neither
+    count_X += 0; // add 0, neither
+The code is very simple, it adds nothing. saying it adds nothing does not help and just clutters the screen.
+
+(All the exmples for this question came from my Ultimate_TicTacToe code)
+
+7)
