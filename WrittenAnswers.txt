@@ -42,4 +42,38 @@ The code is very simple, it adds nothing. saying it adds nothing does not help a
 
 (All the exmples for this question came from my Ultimate_TicTacToe code)
 
-7)
+7) One day that I have not completed in Advent of Code 2025 is day 10.
+I have already done a test run that has failed. THe sudo Code for this is based on recursion
+For every Machine I need to find the smallest amount of presses by usinf factorial and finding different combinations of buttons to reach the goal to turn the machine on
+static int countPress // to count total presses acorss recursion
+partOne(Scanner chop)
+{
+    break up all components using whileloops
+    Store in HashMap<String, ArrayList<String>>
+
+    int total;
+    for(key : hashmap Key)
+    {
+
+        recursion call(key, hashmap.get(key), 0, "[...]")
+        total += countPress;
+        reset countPress
+    }
+
+    print(total)
+}
+
+recursionCall(String, ArrayList<String>, int count, goal)
+{
+    if(String = goal)
+    {
+        countPress = smallest between count and countPress;
+        return;
+    }
+    for every button inside ArrayList
+    {
+        newButtons ArrayList<>()
+        remove index from newButtons // to shrink available options
+        press button and send result to recurisonCall(press(String), newButton, count + 1, goal )
+    }
+}
