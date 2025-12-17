@@ -4,7 +4,7 @@ This is the repository for your Fall Final (2025). In this repo you will find a 
 
 
 Follow these steps:
-1. After setting up your local git repo, make your initial commit. The message should be "Batman". Remember to make commits as you continue.
+1. After setting up your local git repo, make your initial commit. The message should be "Batman". Remember to make commits as you continue. 
 2. Create a new file called "WrittenAnswers.txt"
 3. Inside this new file, answer the following questions. You can reference your own previous code. No googling/looking up info.
    - Explain your Tower of Hanoi Recursion. Why does it work no matter the number of discs?
