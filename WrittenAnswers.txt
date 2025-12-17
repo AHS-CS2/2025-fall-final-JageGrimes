@@ -1,0 +1,79 @@
+1) The Hanoi Tower code words by going from the top to the bottom. It knows how many times to do this as the size is imputed before hand and it subtracts one for each level of recursion
+The recursive method has a base case to return or jump out when the number reaches 0, or is at the bottom of the tower.
+No matter the starting size, it subtracts one and if its less then or equals to zero, its either at the botom or outside the range(not possible if entering positive digits).
+
+2)The purpose of MinMax is to find the best move possible. This can only be done when your opponet also plays the best move.
+In terms of relativity, the opponet winning is minimizing your score, hence it being called min.
+Akin to playing chess against your self. MinMax is a way for the computer to make the best move when assuming the player or another computer is operating at the same level.
+
+3) The way my code impliments MinMax is through adding a method which ensures the game is not over(and depth has not been reached) and if its maxing to set its score to the highest between the current score and a recursive call of notMaxing
+The same is said when the code is Minimizing however, it is instead, looking for the lowst score (as it is in respective of the first player)
+This is on line 155-202 in Computer.java
+The number that is returned to actualy compare scores is based on the board evaluation when it reached the bottom/last move of the game(or depth reached).
+The number is a board evaluation of if player one wins, player two wins, or its a tie. (line 54 - 86 of Computer.java in method boardEvaluation)
+The code that jumpStarts MinMax is a method that loops through available moves and for each of them send in that move with MinMax and progress until the end of the game, recursively calling to check all paths/options.(94 - 137 Computer.java)
+It is indeed a MinMax as it alternated between the players turns and tries to get the highest, when player one, and min, when player two. Doing this recursively.
+
+4) Alpha-Beta Pruning is a type of code that is Similar to MinMax in the concept of alternating turns and finding the best move for each player.
+Instead, this type is an efficency based code. Pruning means to cut off, and this code cuts off unnecesary paths that the computer may try and take.
+When considering TicTacToe, this is not needed as the most moves possible is 9!; however, for bigger games like chess or UltimateTTT, the moves possibilities get larger and larger that cannot be computed easily or timely.
+Alpha-Beta Pruning will cut off paths that will not be checked as there is already a guaranteed better (or worse if minimizing) path. For Example: if there is a score of 10 and the code wants the highest number...
+a recursive call will want a biggest number and gets 23. There is no reason to continue down the path of 10 as the higest number is 23 or greater.
+
+5) Alpha-Bets Pruning was implamented just about the same, however the code is not finished. Due to the size of this game, a board evaluation of an unfinished game was neede. boardEvaluation() in UltimateBoard.java was created to return a score of who was actively winning (line 148 - 173).
+This is still withing MinMax however. There is no Aplha-Beta Pruning implimented yet. The place this would be implimented is within the class GameController.java and it would call the UltimateBoard's boardEvaluation for the base case with the same code as regular TTT had.
+However, this time, new variables beta and alpha would be added which start in the opposit directions Integer.MIN/MAX_VALUE. If beta was greater then alpha or vise versa, this would mena the path is unnecesary and would break out of that path. How exatly this is done is un known to me.
+
+6) Importance of good commenting. The importance lies within readability. Being able to decipher your own code is important and with most code being worked on for years upon years in companies. Leaving notes of how something works or why it is there will steamline understafing.
+Especialy when making code for someone else or that someone else will look at. having it understandable is important.
+For Example: in GameComtroller.java Lines 132 and 133 youll find the below comment
+    // board.isValid(row of next board, col of next board)
+    if(!board.isValid(Integer.parseInt(board.getNextBoard().checkWinner().getName().substring(0, 1)), Integer.parseInt(board.getNextBoard().checkWinner().getName().substring(2))))
+
+The If statement is very convoluted and although I could seperate all the components but I felt storing all the different variables is teedy.
+Instead of tracig all the methods and classes that its using, you cna instead read the comment that exmplains the basis of the if statement checking.
+
+This is "good" commenting as it explains a part of the code that is not immediatly understood. If its good code is up for debate
+Bad comments is akin to saying needles things or over explaining.
+For Example: in MiniBoard.java Lines 150 and 151
+    count_O += 0; // add 0, neither
+    count_X += 0; // add 0, neither
+The code is very simple, it adds nothing. saying it adds nothing does not help and just clutters the screen.
+
+(All the exmples for this question came from my Ultimate_TicTacToe code)
+
+7) One day that I have not completed in Advent of Code 2025 is day 10.
+I have already done a test run that has failed. THe sudo Code for this is based on recursion
+For every Machine I need to find the smallest amount of presses by usinf factorial and finding different combinations of buttons to reach the goal to turn the machine on
+static int countPress // to count total presses acorss recursion
+partOne(Scanner chop)
+{
+    break up all components using whileloops
+    Store in HashMap<String, ArrayList<String>>
+
+    int total;
+    for(key : hashmap Key)
+    {
+
+        recursion call(key, hashmap.get(key), 0, "[...]")
+        total += countPress;
+        reset countPress
+    }
+
+    print(total)
+}
+
+recursionCall(String, ArrayList<String>, int count, goal)
+{
+    if(String = goal)
+    {
+        countPress = smallest between count and countPress;
+        return;
+    }
+    for every button inside ArrayList
+    {
+        newButtons ArrayList<>()
+        remove index from newButtons // to shrink available options
+        press button and send result to recurisonCall(press(String), newButton, count + 1, goal )
+    }
+}
